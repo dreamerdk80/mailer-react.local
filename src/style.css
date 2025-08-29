@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 100px;
+    background: lightgray;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+}
+
+h3 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a {
+    all: unset;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+}
+
+li {
+    all: unset;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 18px;
+}
+
+.cards-mailling {
+    display: flex;
+    overflow: hidden;
+    gap: 50%;
+}
+
+.mailling {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 750px;
+    margin: 0 50px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.field input,
+#message {
+    padding: 10px 20px;
+}
+
+#message {
+    max-width: 750px;
+    width: 100%;
+    min-height: 250px;
+    resize: vertical;
+}
+
+#jsonFileInput::file-selector-button {
+    border-radius: 10px;
+    border: 1px solid #1c3467;
+    padding: 15px 25px;
+    color: #1c3467;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-send {
+    border-radius: 10px;
+    border: 1px solid #1c3467;
+    padding: 15px 25px;
+    color: #1c3467;
+    background: white;
+    cursor: pointer;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.message-out {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.get-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: start;
+    font-size: 18px;
+}
+
+.get-settings span {
+    font-weight: 700;
+}
+
+.response-mailer {
+    white-space: pre-line;
+}
+
+@media screen and (max-width: 768px) {
+    .fields {
+        grid-template-columns: 1fr;
+        grid-template-areas: unset;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 25px 50px;
+    }
+}
