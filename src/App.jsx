@@ -2,6 +2,7 @@ import Auth from './Auth';
 import LoadFile from './LoadFile';
 import MailerForm from './MailerForm';
 import Main from './Main';
+import Registration from './Registration';
 import Settings from './Settings';
 import "./reset.css";
 import "./style.css";
@@ -19,6 +20,9 @@ function App() {
             <NavLink to="/auth" className={({isActive}) => (isActive ? "active" : "")}>Авторизация</NavLink>
           </li>
           <li>
+            <NavLink to="/reg" className={({isActive}) => (isActive ? "active" : "")}>Регистрация</NavLink>
+          </li>
+          <li>
             <NavLink to="/load" className={({isActive}) => (isActive ? "active" : "")}>Загрузка файла</NavLink>
           </li>
           <li>
@@ -33,6 +37,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/auth' element={<Auth />} />
+        <Route path='/reg' element={<Registration />} />
         <Route path='/load' element={<LoadFile />} />
         <Route path='/form' element={<MailerForm />} />
         <Route path='/settings' element={<Settings />} />

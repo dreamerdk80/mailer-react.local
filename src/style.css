@@ -86,6 +86,7 @@ li {
 }
 
 .field input,
+.field select,
 #message {
     padding: 10px 20px;
 }
