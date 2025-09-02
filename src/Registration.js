@@ -48,7 +48,7 @@ function Registration() {
     return (
         <form className="mailling" id="auth" onSubmit={handleReg}>
 
-            <h3>Регистрация</h3>
+            <h3>Регистрация нового пользователя</h3>
 
             <div className="field">
                 <label htmlFor="firstName">Имя</label>
