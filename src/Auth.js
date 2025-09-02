@@ -42,13 +42,13 @@ function Auth() {
             <h3>Авторизация</h3>
 
             <div className="field">
-                <label for="auth-email">E-mail</label>
-                <input name="auth-email" id="auth-email" onChange={handleChange} />
+                <label for="authEmail">E-mail</label>
+                <input name="authEmail" id="authEmail" onChange={handleChange} />
             </div>
 
             <div className="field">
-                <label for="auth-pass">Пароль</label>
-                <input name="auth-pass" id="auth-pass" onChange={handleChange} />
+                <label for="authPass">Пароль</label>
+                <input name="authPass" id="authPasss" onChange={handleChange} />
             </div>
 
             <input className="btn-send" type="submit" id="btn_auth" value="Вход" />
