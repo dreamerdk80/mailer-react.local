@@ -29,10 +29,10 @@ const Dashboard = () => {
     }, [fetchProtectedData]); // Теперь fetchProtectedData в зависимостях
 
     return (
-        <div>
-            <h2>Welcome, {user?.name}!</h2>
+        <div className="mailling">
+            <h3>Добро пожаловать, {user?.name}!</h3>
             <p>Email: {user?.email}</p>
-            <p>Role: {user?.role}</p>
+            <p>Права: {user?.role}</p>
 
             {protectedData && (
                 <div>
@@ -41,7 +41,7 @@ const Dashboard = () => {
                 </div>
             )}
 
-            <button onClick={logout}>Logout</button>
+            <button className="btn-send" onClick={logout}>Выход</button>
         </div>
     );
 };

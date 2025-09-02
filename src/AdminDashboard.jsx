@@ -6,13 +6,13 @@ const AdminDashboard = () => {
     const { user } = useAuth();
 
     return (
-        <div>
-            <h2>Admin Dashboard</h2>
-            <p>Welcome, Administrator {user?.name}!</p>
-            <p>This is a restricted area for administrators only.</p>
-            <div>
+        <div className="mailling">
+            <h3>Панель Адиминистратора</h3>
+            <p>Добро пожаловать, Администратор {user?.name}!</p>
+            <p>Это закрытая зона только для администраторов.</p>
+            <div className="mailling">
                 <h3>Admin Features:</h3>
-                <ul>
+                <ul className="mailling">
                     <li>User Management</li>
                     <li>System Settings</li>
                     <li>Analytics</li>

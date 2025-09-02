@@ -37,12 +37,9 @@ export const AuthProvider = ({ children }) => {
     }, [token]); // Зависимости функции
 
     useEffect(() => {
-        console.log("useEffect triggered, token:", token)
         if (token) {
-            console.log('Calling verifyToken...');
             verifyToken();
         } else {
-            console.log('No token, skipping verification');
             setLoading(false);
         }
     }, [token, verifyToken]); // Теперь verifyToken в зависимостях

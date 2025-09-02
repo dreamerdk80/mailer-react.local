@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from 'react-router-dom';
-import { AuthProvider } from './authContext';
+import { AuthProvider, useAuth } from './authContext'; // Добавлен useAuth
 import ProtectedRoute from './ProtectedRoute';
 import Login from './Login';
 import Dashboard from './Dashboard';
@@ -12,35 +12,75 @@ import Registration from './Registration';
 import "./reset.css";
 import "./style.css";
 
+// Создаем отдельный компонент для меню
+const NavigationMenu = () => {
+    const { user } = useAuth(); // Получаем информацию о пользователе
+
+    return (
+        <nav className='menu'>
+            <ul>
+                {/* Показываем "Авторизация" только если пользователь НЕ авторизован */}
+                {!user && (
+                    <li>
+                        <NavLink to="/login" className={({isActive}) => (isActive ? "active" : "")}>
+                            Авторизация
+                        </NavLink>
+                    </li>
+                )}
+
+                {/* Показываем остальные пункты меню только если пользователь авторизован */}
+                {user && (
+                    <>
+                        <li>
+                            <NavLink to="/" className={({isActive}) => (isActive ? "active" : "")}>
+                                Главная
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/reg" className={({isActive}) => (isActive ? "active" : "")}>
+                                Регистрация
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/load" className={({isActive}) => (isActive ? "active" : "")}>
+                                Загрузка файла
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/form" className={({isActive}) => (isActive ? "active" : "")}>
+                                Отправка формы
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/settings" className={({isActive}) => (isActive ? "active" : "")}>
+                                Настройки
+                            </NavLink>
+                        </li>
+
+                        {/* Дополнительные пункты для администраторов */}
+                        {user.role === 'admin' && (
+                            <li>
+                                <NavLink to="/admin" className={({isActive}) => (isActive ? "active" : "")}>
+                                    Админка
+                                </NavLink>
+                            </li>
+                        )}
+                    </>
+                )}
+            </ul>
+        </nav>
+    );
+};
+
 function App() {
     return (
         <AuthProvider>
-
             <Router>
-                <nav className='menu'>
-                    <ul>
-                      <li>
-                        <NavLink to="/login" className={({isActive}) => (isActive ? "active" : "")}>Авторизация</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/" className={({isActive}) => (isActive ? "active" : "")}>Главная</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/reg" className={({isActive}) => (isActive ? "active" : "")}>Регистрация</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/load" className={({isActive}) => (isActive ? "active" : "")}>Загрузка файла</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/form" className={({isActive}) => (isActive ? "active" : "")}>Отправка формы</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/settings" className={({isActive}) => (isActive ? "active" : "")}>Настройки</NavLink>
-                      </li>
-                    </ul>
-                  </nav>
+                <NavigationMenu /> {/* Используем компонент меню */}
+
                 <Routes>
                     <Route path="/login" element={<Login />} />
+
                     <Route
                         path="/"
                         element={
@@ -49,6 +89,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+
                     <Route
                         path="/load"
                         element={
@@ -57,6 +98,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+
                     <Route
                         path="/form"
                         element={
@@ -65,6 +107,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+
                     <Route
                         path="/settings"
                         element={
@@ -73,6 +116,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+
                     <Route
                         path="/reg"
                         element={
@@ -81,6 +125,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+
                     <Route
                         path="/admin"
                         element={
@@ -89,7 +134,9 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
-                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+                    {/* Редирект на главную для несуществующих routes */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>
         </AuthProvider>
