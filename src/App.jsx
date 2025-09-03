@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from 'react-router-dom';
 import { AuthProvider, useAuth } from './authContext'; // Добавлен useAuth
 import ProtectedRoute from './ProtectedRoute';

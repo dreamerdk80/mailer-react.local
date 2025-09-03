@@ -30,7 +30,7 @@ const Login = () => {
     return (
         <div className="mailling">
 
-            <h3>Вход</h3>
+            <h3>Аутентификация</h3>
 
             <form className="mailling" onSubmit={handleSubmit}>
 
