@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'; // Добавлен useCallback
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'; // Добавлен useCallback
 
 const AuthContext = createContext();
 

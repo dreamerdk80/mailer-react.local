@@ -1,5 +1,3 @@
-// AdminDashboard.js
-import React from 'react';
 import { useAuth } from './authContext';
 
 const AdminDashboard = () => {

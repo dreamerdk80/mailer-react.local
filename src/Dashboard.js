@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'; // Добавлен useCallback
+import { useState, useEffect, useCallback } from 'react'; // Добавлен useCallback
 import { useAuth } from './authContext';
 
 const Dashboard = () => {

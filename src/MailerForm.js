@@ -1,13 +1,6 @@
 import { useState } from "react";
-/* import { EditorState } from '@types/draft-js';
-import { Editor } from '@types/react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'; */
 
 function MailerForm() {
-
-    /* const [editorState, setEditorState] = useState(
-        () => EditorState.createEmpty(),
-    ); */
 
     const [messageToSend, setMessageToSend] = useState({
         theme: "",
@@ -46,12 +39,6 @@ function MailerForm() {
                 console.error("Неизвестный формат ответа:", data);
                 setSendStatus(["Ошибка: неизвестный формат ответа"]);
             }
-
-            /* if (response.ok) {
-                console.log("Информация успешно отправлена: ", data.message)
-            } else {
-                console.error("Ошибка: ", data.message)
-            } */
         } catch (error) {
             console.error("Ошибка отправки: ", error)
         }
